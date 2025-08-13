@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kullanıcı Güncelle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+        .user-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            width: fit-content;
+            padding: 10px 20px;
+            background-color: #162b70;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-end;
+        }
+        .submit-btn:hover {
+            background-color: #162b70;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #162b70;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kullanıcı Güncelle</h2>
+
+        {% for user in data %}
+        <form class="user-form" action="/guncelle" method="post">
+            <input type="hidden" name="id" value="{{ user._id if veritabani == 'mongodb' else user.id }}">
+            
+            <label>Ad:</label>
+            <input type="text" name="isim" value="{{ user.isim }}" required>
+            
+            <label>Soyad:</label>
+            <input type="text" name="soyisim" value="{{ user.soyisim }}" required>
+            
+            <label>E-posta:</label>
+            <input type="email" name="email" value="{{ user.email }}" required>
+            
+            <button type="submit" class="submit-btn">Güncelle</button>
+        </form>
+        {% endfor %}
+
+        <a href="/" class="back-link">← Ana Sayfaya Dön</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Veritabanı Seçimi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 25px;
+            background-color: #162b70;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #162b70;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Veritabanı Seçiniz</h2>
+        <form method="post" action="/veritabani">
+            <label>
+                <input type="radio" name="veritabani" value="mongodb" required> MongoDB
+            </label>
+            <label>
+                <input type="radio" name="veritabani" value="mssql"> MSSQL
+            </label>
+            <button type="submit">Devam Et</button>
+        </form>
+    </div>
+</body>
+</html>
